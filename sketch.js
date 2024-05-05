@@ -13,6 +13,7 @@ let campoFantasia;
 
 function setup() {
   createCanvas(800, 400);
+  createElement("h1", "Recomendador de filmes");
   createSpan("Escreva sua idade:")
   campoIdade = createInput("");
   campoFantasia = createCheckbox("Gosta de fantasia?");
