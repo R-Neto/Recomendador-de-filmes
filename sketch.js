@@ -6,29 +6,41 @@
 // guardiões da galáxia, 12, fantasia/aventura
 // ladrões de bicicleta, 12, drama 
 // o menino que descobriu o vento, 14, drama
+// depois da chuva, 10, drama
 
 let campoIdade;
+let campoFantasia;
 
 function setup() {
   createCanvas(400, 400);
   campoIdade = createInput("Escreva sua Idade");
+  campoFantasia = createCheckbox("Gosta de fantasia?");
 }
 
 function draw() {
   background(220);
   let idade = campoIdade.value();
-  let recomendacao = geraRecomendacao(idade);
+  let gostaDeFantasia = campoFantasia.checked();
+  let recomendacao = geraRecomendacao(idade, gostaDeFantasia);
   text(recomendacao, width/2, height/2);
 }
 
-function geraRecomendacao(idade){
+function geraRecomendacao(idade, gostaDeFantasia){
   if(idade >= 10){
     if(idade >= 14){
-      return "O menino que descobriu o vento"
+      return "O menino que descobriu o vento";
     } else{
-    return "As aventuras de Pi";
+      if(gostaDeFantasia){
+    return "As aventuras de Pi";     
+      } else{
+        return "Depois da chuva";
+      }
     }
   } else{
+    if(gostaDeFantasia){
   return "A viagem de Chihiro";
+    } else{
+      return "O feitiço do tempo";
+    }
   }
 }
